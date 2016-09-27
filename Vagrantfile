@@ -43,6 +43,24 @@ Vagrant.configure(2) do |config|
       v.memory = 2048
     end
   end
+  config.vm.define "mssql" do |d|
+    if ! File.exists?('./SQLEXPRWT_x64_ENU.exe')
+      puts 'SQL Server installer could not be found!'
+      puts "Please run:\n  wget http://download.microsoft.com/download/0/4/B/04BE03CD-EAF3-4797-9D8D-2E08E316C998/SQLEXPRWT_x64_ENU.exe"
+#      exit 1
+    end
+    d.vm.box = "opentable/win-2008r2-standard-amd64-nocm" 
+    d.vm.network "private_network", ip: "200.200.200.203"
+    d.vm.network :forwarded_port, guest: 3389, host: 3389
+    d.vm.provision :shell, path: "scripts/mssql/install-dot-net.ps1"
+    d.vm.provision :shell, path: "scripts/mssql/install-sql-server.cmd"
+    d.vm.provision :shell, path: "scripts/mssql/configure-sql-port.ps1"
+    d.vm.provision :shell, path: "scripts/mssql/enable-rdp.ps1"
+    d.vm.provider "virtualbox" do |v|
+      v.memory = 2048
+    end
+  end
+
   if Vagrant.has_plugin?("vagrant-cachier")
     config.cache.scope = :box
   end

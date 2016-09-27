@@ -1,3 +1,14 @@
+===================
+Prerequisite
+===================
+Please make sure that your Vagrant version is at least 1.8 
+and VirtualBox is at least 4.26 
+We’ll use it to bring up a virtual machine with CentOs 7
+
+
+
+
+
 1.oracledb（200.200.200.200） 
 
 Connect database with following setting:
