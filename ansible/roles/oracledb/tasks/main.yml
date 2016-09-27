@@ -1,0 +1,36 @@
+- name: OracleDBXE is running
+  docker:
+    image: wnameless/oracle-xe-11g
+    name: oracle-xe-11g
+    ports: 
+    - "49161:1521"
+    - "49160:22"
+    privileged: yes
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+  when: not skip_ui is defined
+  tags: [oracledb]
+
+#hostname: localhost
+#port: 49161
+#username: system
+#password: oracle
+#Password for SYS & SYSTEM
+
+#oracle
+#Login by SSH
+
+#ssh root@localhost -p 49160
+#password: admin
+
+
+#  - name: OracleDBXE is running
+#  docker:
+#    image: wnameless/oracle-xe-11g
+#    name: oracle-xe-11g
+#    ports: 49160:1521
+#    privileged: yes
+#    volumes:
+#      - /var/run/docker.sock:/var/run/docker.sock
+#  when: not skip_ui is defined
+#  tags: [oracledb]

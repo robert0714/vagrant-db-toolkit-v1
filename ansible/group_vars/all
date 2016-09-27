@@ -1,0 +1,13 @@
+ip: "{{ facter_ipaddress_eth1 }}"
+consul_extra: ""
+proxy_url: http://{{ facter_ipaddress_eth1 }}
+proxy_url2: http://{{ facter_ipaddress_eth1 }}
+registry: 192.168.57.27:5000
+registry_url: 192.168.57.27:5000/
+jenkins_ip: 192.168.57.27
+debian_version: trusty
+docker_cfg: docker.cfg
+docker_cfg_dest: /etc/default/docker
+elk_ip: 192.168.57.32
+jenkins_version: 1.651.3
+registry_host_dir: /vagrant/registry

@@ -1,0 +1,8 @@
+- hosts: localhost
+  remote_user: vagrant
+  serial: 1
+  roles:
+    - common-centos
+    - docker-centos
+    - docker-compose
+    - postgresql

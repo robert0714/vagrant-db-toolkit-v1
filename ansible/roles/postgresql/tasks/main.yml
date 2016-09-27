@@ -1,0 +1,14 @@
+- name: postgresql + phpPgAdmin is running
+  docker:
+    image: wnameless/postgresql-phppgadmin
+    name: postgresql-phppgadmin
+    ports: 
+    - "49160:22"
+    - "49161:80"
+    - "49162:5432"
+    privileged: yes
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+  when: not skip_ui is defined
+  tags: [postgresql]
+ 

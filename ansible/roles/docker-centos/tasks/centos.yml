@@ -1,0 +1,61 @@
+- name: CentOS files are copied
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  with_items: centos_files
+  tags: [docker-centos]
+
+- name: CentOS package is installed
+  yum:
+    name: docker-engine
+    state: present
+  tags: [docker-centos]
+
+- name: python-pip is present
+  yum:
+    name: python-pip
+    state: present
+  tags: [docker-centos]
+
+- name: docker-py is present
+  pip:
+    name: docker-py
+    version: 1.9.0
+    state: present
+  tags: [docker]
+
+- name: CentOS Daemon is reloaded
+  command: systemctl daemon-reload
+  tags: [docker-centos]
+
+- name: vagrant user is added to the docker group
+  user:
+    name: vagrant
+    group: docker
+  register: user_result
+  tags: [docker-centos]
+
+- name: Centos Docker service is restarted
+  service:
+    name: docker
+    state: restarted
+  when: copy_result|changed or user_result|changed
+  tags: [docker-centos]
+
+- name: DockerUI is running
+  docker:
+    image: uifd/ui-for-docker
+    name: dockerui
+    ports: 9000:9000
+    privileged: yes
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+  when: not skip_ui is defined
+  tags: [docker-centos]
+
+- name: CentOS service is running
+  service:
+    name: docker
+    state: running
+  tags: [docker-centos]
+

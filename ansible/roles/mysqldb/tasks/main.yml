@@ -1,0 +1,21 @@
+- name: MySQL is running  
+  docker:
+    privileged: yes
+    env:
+      MYSQL_ROOT_PASSWORD: ude
+      MYSQL_DATABASE: ude
+      MYSQL_USER: ude
+      MYSQL_PASSWORD: ude 
+    image: mysql/mysql-server:5.5
+    name: mysqldb
+    ports: 
+     - "49160:22"
+     - "49161:80"
+     - "49162:3306"    
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /data/mysql:/var/lib/mysql
+      - /vagrant/.vagrant/machines:/machines
+  when: not skip_ui is defined
+  tags: [mysqldb]
+ 
