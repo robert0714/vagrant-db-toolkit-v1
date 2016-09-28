@@ -51,7 +51,7 @@ Vagrant.configure(2) do |config|
     end
     d.vm.box = "opentable/win-2008r2-standard-amd64-nocm" 
     d.vm.network "private_network", ip: "200.200.200.203"
-    d.vm.network :forwarded_port, guest: 3389, host: 3389
+    d.vm.network :forwarded_port, guest: 3389, host: 3391
     d.vm.provision :shell, path: "scripts/mssql/install-dot-net.ps1"
     d.vm.provision :shell, path: "scripts/mssql/install-sql-server.cmd"
     d.vm.provision :shell, path: "scripts/mssql/configure-sql-port.ps1"
