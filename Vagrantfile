@@ -8,8 +8,8 @@ Vagrant.configure(2) do |config|
     config.vm.synced_folder ".", "/vagrant"
   end
   config.vm.define "oracledb" do |d|
-  config.ssh.insert_key = false 
-    d.vm.box = "bento/centos-7.2"
+#   config.ssh.insert_key = false 
+    d.vm.box ="centos/7"
 #    d.vm.box ="ubuntu/trusty64"
 #    d.vm.box ="bento/ubuntu-14.04"
 #    d.vm.box = "ubuntu/wily64"
@@ -22,8 +22,8 @@ Vagrant.configure(2) do |config|
     end
   end
   config.vm.define "mysqldb" do |d|
-  config.ssh.insert_key = false 
-    d.vm.box = "bento/centos-7.2"
+#   config.ssh.insert_key = false 
+    d.vm.box ="centos/7"
     d.vm.hostname = "mysqldb"
     d.vm.network "private_network", ip: "200.200.200.201" 
     d.vm.provision :shell, path: "scripts/bootstrap4CentOs_ansible.sh"
@@ -33,8 +33,8 @@ Vagrant.configure(2) do |config|
     end
   end
   config.vm.define "postgresql" do |d|
-  config.ssh.insert_key = false 
-    d.vm.box = "bento/centos-7.2"
+#   config.ssh.insert_key = false 
+    d.vm.box ="centos/7"
     d.vm.hostname = "postgresql"
     d.vm.network "private_network", ip: "200.200.200.202" 
     d.vm.provision :shell, path: "scripts/bootstrap4CentOs_ansible.sh"
@@ -64,9 +64,9 @@ Vagrant.configure(2) do |config|
   if Vagrant.has_plugin?("vagrant-cachier")
     config.cache.scope = :box
   end
-  if Vagrant.has_plugin?("vagrant-vbguest")
-    config.vbguest.auto_update = false
-    config.vbguest.no_install = true
-    config.vbguest.no_remote = true
-  end
+#  if Vagrant.has_plugin?("vagrant-vbguest")
+#    config.vbguest.auto_update = false
+#    config.vbguest.no_install = true
+#    config.vbguest.no_remote = true
+#  end
 end
