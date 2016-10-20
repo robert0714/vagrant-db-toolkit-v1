@@ -10,6 +10,16 @@ echo "Installing Ansible  on CentOS..."
 #apt-get install -y --force-yes ansible
 #cp /vagrant/ansible/ansible.cfg /etc/ansible/ansible.cf
 
+testfile=/dev/shm/netstat_checking.txt
+yum info ansible  -tuln > ${testfile}   # 先轉存資料到記憶體當中！不用一直執行 netstat
+testing=$(grep "ansible" ${testfile})   # 偵測看 port 80 在否？
+
+if [ "${testing}" != "" ]; then
+	echo "Ansible is already installed."
+else
+  	echo "Ansible is not installed."
+fi
+
 yum install -y wget
 wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-8.noarch.rpm
 rpm -ivhf  --quiet epel-release-7-8.noarch.rpm
