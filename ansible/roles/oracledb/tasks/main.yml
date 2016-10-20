@@ -1,7 +1,7 @@
 - name: OracleDBXE is running
   docker:
-    image: sath89/oracle-xe-11g
-    name: oracle-xe-11g
+    image: sath89/oracle-12c
+    name: oracledb
     ports: 
     - "49162:8080"
     - "49161:1521"

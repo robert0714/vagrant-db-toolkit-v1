@@ -41,19 +41,16 @@
     state: present
   tags: [docker]
 
+- name: Centos Daemon is reloaded
+  command: systemctl daemon-reload
+  when: copy_result|changed and is_systemd is defined
+  tags: [docker]
+
 - name: vagrant user is added to the docker group
   user:
-    name: vagrantexit
+    name: vagrant
     group: docker
   register: user_result
-  tags: [docker]
-
-- name: CentOS Daemon is reloaded
-  command: systemctl daemon-reload 
-  tags: [docker]
-
-- name: CentOS Daemon is restarted
-  command: systemctl restart docker
   tags: [docker]
 
 - name: Centos Docker service is restarted
