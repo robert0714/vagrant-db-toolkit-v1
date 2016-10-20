@@ -4,11 +4,11 @@
 
 echo "Installing Ansible  on CentOS..."
 A=`yum info ansible`
-testing=`test $A ='Ansible'; echo $?`
+testing=`[[ $A =~ 'Ansible' ]]`
 echo $testing
 echo  "############# ${testing} ##############"
 
-if [ $testing > 0  ]; then
+if [ $testing != ""  ]; then
      echo "Ansible is already installed."
 else
       echo "Ansible is not installed."
