@@ -7,8 +7,9 @@ echo "Installing Ansible  on CentOS..."
 #apt-add-repository ppa:ansible/ansible
 #apt-get update
 #apt-get install -y --force-yes ansible
-#cp /vagrant/ansible/ansible.cfg /etc/ansible/ansible.cfg
+#cp /vagrant/ansible/ansible.cfg /etc/ansible/ansible.cf
 
+yum install -y wget
 wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-8.noarch.rpm
 rpm -ivh epel-release-7-8.noarch.rpm
 rm -rf epel-release-7-8.noarch.rpm
