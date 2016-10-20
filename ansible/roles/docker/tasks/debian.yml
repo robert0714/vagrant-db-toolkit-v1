@@ -54,7 +54,7 @@
 
 - name: DockerUI is running
   docker:
-    image: 192.168.57.29:5000/ui-for-docker
+    image: uifd/ui-for-docker
     name: dockerui
     ports: 9000:9000
     privileged: yes

@@ -1,13 +1,16 @@
 - name: OracleDBXE is running
   docker:
-    image: wnameless/oracle-xe-11g
+    image: sath89/oracle-xe-11g
     name: oracle-xe-11g
     ports: 
+    - "49162:8080"
     - "49161:1521"
     - "49160:22"
     privileged: yes
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - /vagrant/oracle/initdb:/etc/entrypoint-initdb.d
+      - /vagrant/oracle/data:/u01/app/oracle 
   when: not skip_ui is defined
   tags: [oracledb]
 

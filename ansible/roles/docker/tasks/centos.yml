@@ -40,12 +40,12 @@
     version: 1.6.0
     state: present
   tags: [docker]
-  
-- name: Docker Debian files are present
-  template:
-    src: "{{ docker_cfg }}"
-    dest: "{{ docker_cfg_dest }}"
-  register: copy_result
+
+- name: vagrant user is added to the docker group
+  user:
+    name: vagrantexit
+    group: docker
+  register: user_result
   tags: [docker]
 
 - name: CentOS Daemon is reloaded
@@ -54,14 +54,6 @@
 
 - name: CentOS Daemon is restarted
   command: systemctl restart docker
-  tags: [docker]
-
-- name: vagrant user is added to the docker group
-  user:
-    name: vagrantexit
-
-    group: docker
-  register: user_result
   tags: [docker]
 
 - name: Centos Docker service is restarted
@@ -73,7 +65,7 @@
 
 - name: DockerUI is running
   docker:
-    image: 192.168.57.29:5000/ui-for-docker
+    image: uifd/ui-for-docker
     name: dockerui
     ports: 9000:9000
     privileged: yes
