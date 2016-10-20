@@ -1,7 +1,6 @@
 #!/bin/bash
-#!/bin/bash
 
-set -e
+
 
 echo "Installing Ansible  on CentOS..."
 A=`yum info ansible`
