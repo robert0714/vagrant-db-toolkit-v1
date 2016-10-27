@@ -1,6 +1,6 @@
 ip: "{{ facter_ipaddress_eth1 }}"
 consul_extra: ""
-debian_version: wily
+debian_version: trusty
 docker_cfg: docker.cfg
 docker_cfg_dest: /etc/default/docker
 registry_host_dir: /vagrant/registry
