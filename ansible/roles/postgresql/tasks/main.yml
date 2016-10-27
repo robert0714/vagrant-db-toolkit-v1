@@ -7,6 +7,9 @@
     - "49161:80"
     - "49162:5432"
     privileged: yes
+    environment:
+      - DB_USER: postgres
+      - DB_PASS: dbuserpas 
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /srv/docker/postgresql:/var/lib/postgresql
