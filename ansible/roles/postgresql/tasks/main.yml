@@ -1,14 +1,21 @@
-- name: sameersbn-postgresql:9.5-3
-  become: true
-  become_user: vagrant
+- name: messagebus user is added to the root group
+  user:
+    name: messagebus
+    group: root
+  register: user_result
+  tags: [postgresql]
+
+- name: sameersbn-postgresql:9.4-24
+#  become: true
+#  become_user: messagebus
   docker:   
     privileged: yes
     env:
       DB_USER: ude
       DB_PASS: ude 
       DB_NAME: udedb
-#    image: sameersbn/postgresql:9.5-3
-    image: 192.168.57.29:5000/postgresql:9.5-3
+    image: 192.168.57.29:5000/postgresql:9.4-24
+#    image: 192.168.57.29:5000/postgresql:9.4-24
     name: postgresql
     ports: 
     - "49160:22"
@@ -16,7 +23,8 @@
     - "49162:5432"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /vagrant/postgresql_data:/var/lib/postgresql  
+#this is a issue - /vagrant/postgresql_data:/var/lib/postgresql
+      - /data/postgresql:/var/lib/postgresql
   tags: [postgresql]
  
 
@@ -24,4 +32,4 @@
 #docker run --name postgresql -itd --restart always \
 #  --env 'DB_USER=dbuser' --env 'DB_PASS=dbuserpass' \
 #  --env 'DB_NAME=dbname' -p  49162:5432  \
-#  192.168.57.29:5000/postgresql:9.5-3 
+#  192.168.57.29:5000/postgresql:9.4-24 
