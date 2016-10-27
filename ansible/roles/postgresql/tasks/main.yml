@@ -8,7 +8,7 @@
     - "49161:80"
     - "49162:5432"
     privileged: yes
-    environment:
+    env:
       - DB_USER: postgres
       - DB_PASS: postgres
       - DB_NAME: testdb
