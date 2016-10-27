@@ -62,8 +62,8 @@ https://hub.docker.com/r/wnameless/mysql-phpmyadmin/
 3.postgresql（200.200.200.202）
 
 Open http://200.200.0.202:49161/phppgadmin  in your browser with following credential:<br>
-username: postgres 
-password: postgres
+username: ude
+password: ude
 
 Login by SSH 
 ssh root@localhost -p 49160 

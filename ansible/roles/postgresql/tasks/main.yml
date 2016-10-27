@@ -2,10 +2,9 @@
   docker:
     privileged: yes
     env:
-      DB_USER: postgres
-      DB_PASS: postgres
-      MYSQL_USER: ude
-      DB_NAME: testdb
+      DB_USER: ude
+      DB_PASS: ude 
+      DB_NAME: udedb
 #    image: sameersbn/postgresql:9.5-3
     image: 192.168.57.29:5000/postgresql:9.5-3
     name: postgresql
@@ -16,6 +15,13 @@
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /vagrant/postgresql:/var/lib/postgresql
+      - /vagrant/postgresql/backups/postgresql.$(date +%Y%m%d%H%M%S):/var/lib/postgresql
   when: not skip_ui is defined
   tags: [postgresql]
  
+
+ 
+#docker run --name postgresql -itd --restart always \
+#  --env 'DB_USER=dbuser' --env 'DB_PASS=dbuserpass' \
+#  --env 'DB_NAME=dbname' -p  49162:5432  \
+#  192.168.57.29:5000/postgresql:9.5-3 
