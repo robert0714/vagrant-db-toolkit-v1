@@ -1,7 +1,7 @@
-- name: postgresql + phpPgAdmin is running
+- name: sameersbn-postgresql:9.5-3
   docker:
-    image: wnameless/postgresql-phppgadmin
-    name: postgresql-phppgadmin
+    image: sameersbn/postgresql:9.5-3
+    name: postgresql
     ports: 
     - "49160:22"
     - "49161:80"
@@ -9,6 +9,7 @@
     privileged: yes
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - /srv/docker/postgresql:/var/lib/postgresql
   when: not skip_ui is defined
   tags: [postgresql]
  
