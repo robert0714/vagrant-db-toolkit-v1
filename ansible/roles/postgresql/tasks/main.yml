@@ -14,8 +14,7 @@
     - "49162:5432"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /vagrant/postgresql:/var/lib/postgresql
-      - /vagrant/postgresql/backups/postgresql.$(date +%Y%m%d%H%M%S):/var/lib/postgresql
+      - /vagrant/postgresql:/var/lib/postgresql      
   when: not skip_ui is defined
   tags: [postgresql]
  
