@@ -1,6 +1,7 @@
 - name: sameersbn-postgresql:9.5-3
   docker:
-    image: sameersbn/postgresql:9.5-3
+#    image: sameersbn/postgresql:9.5-3
+    image: 192.168.57.29:5000/postgresql:9.5-3
     name: postgresql
     ports: 
     - "49160:22"
@@ -13,7 +14,7 @@
       - DB_NAME: testdb
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /srv/docker/postgresql:/var/lib/postgresql
+      - /vagrant/postgresql:/var/lib/postgresql
   when: not skip_ui is defined
   tags: [postgresql]
  
