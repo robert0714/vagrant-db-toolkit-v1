@@ -1,5 +1,11 @@
 - name: sameersbn-postgresql:9.5-3
   docker:
+    privileged: yes
+    env:
+      DB_USER: postgres
+      DB_PASS: postgres
+      MYSQL_USER: ude
+      DB_NAME: testdb
 #    image: sameersbn/postgresql:9.5-3
     image: 192.168.57.29:5000/postgresql:9.5-3
     name: postgresql
@@ -7,11 +13,6 @@
     - "49160:22"
     - "49161:80"
     - "49162:5432"
-    privileged: yes
-    env:
-      - DB_USER: postgres
-      - DB_PASS: postgres
-      - DB_NAME: testdb
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /vagrant/postgresql:/var/lib/postgresql
