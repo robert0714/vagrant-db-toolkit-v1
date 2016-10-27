@@ -34,7 +34,7 @@ Vagrant.configure(2) do |config|
   end
   config.vm.define "postgresql" do |d|
 #   config.ssh.insert_key = false 
-    d.vm.box ="ubuntu/trusty64"
+    d.vm.box ="ubuntu/wily64"
     d.vm.hostname = "postgresql"
     d.vm.network "private_network", ip: "200.200.200.202" 
     d.vm.provision :shell, path: "scripts/bootstrap4Ubuntu_ansible.sh"
