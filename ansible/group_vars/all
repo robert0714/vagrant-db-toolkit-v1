@@ -4,3 +4,4 @@ debian_version: trusty
 docker_cfg: docker.cfg
 docker_cfg_dest: /etc/default/docker
 registry_host_dir: /vagrant/registry
+postgresql_host_dir: /vagrant/postgresql_data
