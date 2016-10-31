@@ -24,7 +24,7 @@
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 #this is a issue 
-      - "{{ postgresql_host_dir }}":/var/lib/postgresql
+      - "{{ postgresql_host_dir }}:/var/lib/postgresql"
       #- /data/postgresql:/var/lib/postgresql
   tags: [postgresql]
  
