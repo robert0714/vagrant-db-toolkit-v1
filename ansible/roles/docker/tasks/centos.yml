@@ -41,6 +41,13 @@
     state: present
   tags: [docker]
 
+- name: CentOS files are present
+  template:
+    src: "{{ centos_docker_cfg }}"
+    dest: "{{ centos_docker_cfg_dest }}"
+  register: copy_result
+  tags: [docker]
+
 - name: Centos Daemon is reloaded
   command: systemctl daemon-reload
   when: copy_result|changed and is_systemd is defined
@@ -77,4 +84,3 @@
     name: docker
     state: running
   tags: [docker]
-

@@ -26,10 +26,10 @@
     state: present
   tags: [docker]
 
-- name: Debian files are present
+- name: CentOS files are present
   template:
-    src: "{{ docker_cfg }}"
-    dest: "{{ docker_cfg_dest }}"
+    src: "{{ centos_docker_cfg }}"
+    dest: "{{ centos_docker_cfg_dest }}"
   register: copy_result
   tags: [docker]
 
