@@ -2,7 +2,7 @@ hosts: [
   { host_ip: "200.200.200.200", host_name: "oracledb"},
   { host_ip: "200.200.200.201", host_name: "mysqldb"},
   { host_ip: "200.200.200.202", host_name: "postgrsqldb"},
-  { host_ip: "200.200.200.203", host_name: "hybridDB"},
+  { host_ip: "200.200.200.203", host_name: "hybridDB"}
 ]
 
 obsolete_services:
@@ -10,5 +10,5 @@ obsolete_services:
   - chef-client
 
 centos_files: [
-     { src: "centos.sshd_config", dest: "/etc/ssh/sshd_config" },
+     { src: "centos.sshd_config", dest: "/etc/ssh/sshd_config" }
   ]

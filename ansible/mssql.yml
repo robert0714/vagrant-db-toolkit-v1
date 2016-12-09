@@ -1,9 +1,9 @@
 - hosts: localhost
-- hosts: localhost
   remote_user: vagrant
   serial: 1
   roles:
     - common
     - docker
     - docker-compose
-    - postgresql
+    - mssql
+
