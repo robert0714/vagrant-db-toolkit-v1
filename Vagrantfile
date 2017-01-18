@@ -23,11 +23,13 @@ Vagrant.configure(2) do |config|
   end
   config.vm.define "mysqldb" do |d|
 #   config.ssh.insert_key = false 
-    d.vm.box ="centos/7"
+#    d.vm.box ="centos/7"
+    d.vm.box ="bento/ubuntu-14.04"
     d.vm.hostname = "mysqldb"
     d.vm.network "private_network", ip: "200.200.200.201" 
-    d.vm.provision :shell, path: "scripts/bootstrap4CentOs_ansible.sh"
-    d.vm.provision :shell, inline: "PYTHONUNBUFFERED=1 ansible-playbook /vagrant/ansible/mysqldb-centos.yml -c local"
+  #  d.vm.provision :shell, path: "scripts/bootstrap4CentOs_ansible.sh"
+    d.vm.provision :shell, path: "bootstrap4Ubuntu_ansible.sh"
+    d.vm.provision :shell, inline: "PYTHONUNBUFFERED=1 ansible-playbook /vagrant/ansible/mysqldb.yml -c local"
     d.vm.provider "virtualbox" do |v|
       v.memory = 2048
     end
