@@ -11,6 +11,6 @@
     name: "{{ item }}"
     state: stopped
   ignore_errors: yes
-  with_items: obsolete_services
+  with_items: "{{ obsolete_services }}"
   tags: [common]
 
