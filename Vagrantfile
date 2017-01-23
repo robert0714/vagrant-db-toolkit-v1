@@ -16,7 +16,8 @@ Vagrant.configure(2) do |config|
 #    d.vm.box = "ubuntu/wily64"
     d.vm.hostname = "oracledb"
     d.vm.network "private_network", ip: "200.200.200.200" 
-    d.vm.provision :shell, path: "scripts/bootstrap4CentOs_ansible.sh"
+  #  d.vm.provision :shell, path: "scripts/bootstrap4CentOs_ansible.sh"
+    d.vm.provision :shell, path: "scripts/bootstrap4Ubuntu_ansible.sh"
     d.vm.provision :shell, inline: "PYTHONUNBUFFERED=1 ansible-playbook /vagrant/ansible/oracledb-centos.yml -c local"
     d.vm.provider "virtualbox" do |v|
       v.memory = 2048
