@@ -9,7 +9,8 @@ Vagrant.configure(2) do |config|
   end
   config.vm.define "oracledb" do |d|
 #   config.ssh.insert_key = false 
-    d.vm.box ="centos/7"
+#   d.vm.box ="centos/7"
+    d.vm.box ="ubuntu/trusty64"
 #    d.vm.box ="ubuntu/trusty64"
 #    d.vm.box ="bento/ubuntu-14.04"
 #    d.vm.box = "ubuntu/wily64"
@@ -24,7 +25,8 @@ Vagrant.configure(2) do |config|
   config.vm.define "mysqldb" do |d|
 #   config.ssh.insert_key = false 
 #    d.vm.box ="centos/7"
-    d.vm.box ="bento/ubuntu-14.04"
+#    d.vm.box ="bento/ubuntu-14.04"
+    d.vm.box ="ubuntu/trusty64"    
     d.vm.hostname = "mysqldb"
     d.vm.network "private_network", ip: "200.200.200.201" 
   #  d.vm.provision :shell, path: "scripts/bootstrap4CentOs_ansible.sh"
