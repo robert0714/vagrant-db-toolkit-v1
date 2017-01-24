@@ -1,19 +1,17 @@
 - name: OracleDBXE is running
-  shell: docker run -d -p 49160:22 -p 49161:1521 -e ORACLE_ALLOW_REMOTE=true -v /var/run/docker.sock:/var/run/docker.sock -v /vagrant/oracle/initdb:/etc/entrypoint-initdb.d -v /vagrant/oracle/data:/u01/app/oracle    wnameless/oracle-xe-11g:14.04.4 
-#  docker_container:
-#    name: oracledb
-#    image: wnameless/oracle-xe-11g:14.04.4     
-#    ports: 
-#    - "49162:8080"
-#    - "49161:1521"
-#    - "49160:22"
-#    privileged: yes
-#    env:
-#      ORACLE_ALLOW_REMOTE: true 
-#    volumes:
-#      - /var/run/docker.sock:/var/run/docker.sock
-#      - /vagrant/oracle/initdb:/etc/entrypoint-initdb.d
-#      - /vagrant/oracle/data:/u01/app/oracle 
+#  shell: docker run -d -p 49160:22 -p 49161:1521 -e ORACLE_ALLOW_REMOTE=true    -v /vagrant/oracle/data:/u01/app/oracle    wnameless/oracle-xe-11g:14.04.4 
+  docker_container:
+    name: oracledb
+    image: sath89/oracle-xe-11g:14.04.4     
+    ports: 
+    - "49162:8080"
+    - "49161:1521"
+    - "49160:22"
+    privileged: yes
+    env:
+      ORACLE_ALLOW_REMOTE: true 
+    volumes:
+      - /vagrant/oracle/data:/u01/app/oracle 
   when: not skip_ui is defined
   tags: [oracledb]
 
