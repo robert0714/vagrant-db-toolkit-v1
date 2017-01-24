@@ -1,5 +1,5 @@
 - name: OracleDBXE is running
-  shell: docker run -d -p 49160:22 -p 49161:1521 -e ORACLE_ALLOW_REMOTE=true wnameless/oracle-xe-11g:14.04.4  -name oracledb
+  shell: docker run -d -p 49160:22 -p 49161:1521 -e ORACLE_ALLOW_REMOTE=true  -name oracledb  wnameless/oracle-xe-11g:14.04.4 
 #  docker_container:
 #    name: oracledb
 #    image: wnameless/oracle-xe-11g:14.04.4     
