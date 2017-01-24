@@ -1,14 +1,16 @@
 - name: OracleDBXE is running
-  docker:
-    env:
-      ORACLE_ALLOW_REMOTE=true     
-    image: wnameless/oracle-xe-11g:14.04.4
+  docker_container:
     name: oracledb
+    image: wnameless/oracle-xe-11g:14.04.4
+    state: started
+    restart: yes
     ports: 
     - "49162:8080"
     - "49161:1521"
     - "49160:22"
     privileged: yes
+    env:
+      ORACLE_ALLOW_REMOTE: true 
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /vagrant/oracle/initdb:/etc/entrypoint-initdb.d
