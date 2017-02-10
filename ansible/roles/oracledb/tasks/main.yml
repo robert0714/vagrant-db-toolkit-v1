@@ -9,7 +9,10 @@
     - "49160:22"
     privileged: yes
     env:
-      ORACLE_ALLOW_REMOTE: true 
+      ORACLE_ALLOW_REMOTE: true
+      processes: 1000
+      sessions: 1105
+      transactions: 1215
     volumes:
       - /vagrant/oracle/data:/u01/app/oracle
       - /vagrant/oracle/init/sh_sql_dmp_files:/docker-entrypoint-initdb.d
