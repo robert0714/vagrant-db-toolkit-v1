@@ -11,7 +11,8 @@
     env:
       ORACLE_ALLOW_REMOTE: true 
     volumes:
-      - /vagrant/oracle/data:/u01/app/oracle 
+      - /vagrant/oracle/data:/u01/app/oracle
+      - /vagrant/oracle/init/sh_sql_dmp_files:/docker-entrypoint-initdb.d
   when: not skip_ui is defined
   tags: [oracledb]
 
