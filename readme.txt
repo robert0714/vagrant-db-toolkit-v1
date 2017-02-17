@@ -72,8 +72,12 @@ password: admin
 # Reference
 https://hub.docker.com/r/wnameless/postgresql-phppgadmin/
 
-4.MSSQL
+4.MSSQL（200.200.200.203）
     mssql: 3389 (RDP guest) => 3391 (host) (adapter 1)
     mssql: 5985 (guest) => 55985 (host) (adapter 1)
     mssql: 5986 (guest) => 55986 (host) (adapter 1)
     mssql: 22 (guest) => 2204 (host) (adapter 1)
+
+5.MongoDB（200.200.200.204）
+    port: 49161
+     

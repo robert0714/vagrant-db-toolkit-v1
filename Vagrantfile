@@ -58,7 +58,18 @@ Vagrant.configure(2) do |config|
     d.vm.provider "virtualbox" do |v|
       v.memory = 4096
     end
-  end  
+  end
+  config.vm.define "mongodb" do |d|
+#   config.ssh.insert_key = false 
+    d.vm.box ="ubuntu/trusty64"
+    d.vm.hostname = "mongodb"
+    d.vm.network "private_network", ip: "200.200.200.204" 
+    d.vm.provision :shell, path: "scripts/bootstrap4Ubuntu_ansible.sh"
+    d.vm.provision :shell, inline: "PYTHONUNBUFFERED=1 ansible-playbook /vagrant/ansible/mongodb.yml -c local"
+    d.vm.provider "virtualbox" do |v|
+      v.memory = 4096
+    end
+  end   
   if Vagrant.has_plugin?("vagrant-cachier")
     config.cache.scope = :box
   end
