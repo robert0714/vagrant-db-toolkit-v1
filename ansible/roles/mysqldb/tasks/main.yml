@@ -1,5 +1,20 @@
+- name: Directories are created
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items: "{{ directories }}"
+  tags: [mysqldb]
+
+- name: Files are copied
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: "{{ item.mode }}"
+  with_items: "{{ files }}"
+  tags: [mysqldb]
+
 - name: MySQL is running  
-  docker:
+  docker_container:
     privileged: yes
     env:
       MYSQL_ROOT_PASSWORD: ude
@@ -17,6 +32,7 @@
       - /var/run/docker.sock:/var/run/docker.sock
       - /data/mysql:/var/lib/mysql
       - /vagrant/.vagrant/machines:/machines
+      - /etc/mysql/my55.cnf:/etc/my.cnf
   when: not skip_ui is defined
   tags: [mysqldb]
  
