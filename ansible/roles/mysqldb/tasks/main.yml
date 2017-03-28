@@ -6,6 +6,7 @@
       MYSQL_DATABASE: ude
       MYSQL_USER: ude
       MYSQL_PASSWORD: ude 
+      lower_case_table_names: 1
     image: mysql/mysql-server:5.5
     name: mysqldb
     ports: 
