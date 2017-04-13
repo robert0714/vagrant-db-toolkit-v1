@@ -7,8 +7,7 @@ We’ll use it to bring up a virtual machine with CentOs 7
 
 Creating a Vagrant virtual machine is easy.
 1 vagrant plugin install vagrant-cachier
-2
-3 vagrant up mysqldb
+
 
 The first command is not mandatory, but it will help speeding up the creation of new VMs. It caches
 all packages that are being used so that the next time we need them, they are obtained from the
@@ -73,10 +72,9 @@ password: admin
 https://hub.docker.com/r/wnameless/postgresql-phppgadmin/
 
 4.MSSQL（200.200.200.203）
-    mssql: 3389 (RDP guest) => 3391 (host) (adapter 1)
-    mssql: 5985 (guest) => 55985 (host) (adapter 1)
-    mssql: 5986 (guest) => 55986 (host) (adapter 1)
-    mssql: 22 (guest) => 2204 (host) (adapter 1)
+     port: 1433
+     username: sa
+     password: Ude123@iisi
 
 5.MongoDB（200.200.200.204）
     port: 49161
