@@ -8,7 +8,8 @@
 - name: microsoft/mssql-server-linux
 #  become: true
 #  become_user: messagebus
-  docker:   
+  docker_container:
+    restart_policy: always  
     privileged: yes
     env:
       ACCEPT_EULA: Y

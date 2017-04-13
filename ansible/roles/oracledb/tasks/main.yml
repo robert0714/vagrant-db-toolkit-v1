@@ -2,7 +2,8 @@
 #  shell: docker run -d -p 49160:22 -p 49161:1521 -e ORACLE_ALLOW_REMOTE=true    -v /vagrant/oracle/data:/u01/app/oracle    wnameless/oracle-xe-11g:14.04.4 
   docker_container:
     name: oracledb
-    image: sath89/oracle-xe-11g 
+    image: sath89/oracle-xe-11g
+    restart_policy: always
     ports: 
     - "49162:8080"
     - "49161:1521"

@@ -8,7 +8,8 @@
 - name: sameersbn-postgresql:9.4-24
 #  become: true
 #  become_user: messagebus
-  docker:   
+  docker_container:
+    restart_policy: always
     privileged: yes
     env:
       DB_USER: ude
