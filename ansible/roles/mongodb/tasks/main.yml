@@ -1,6 +1,6 @@
 - name: MongoDB is running
   docker_container:
-    restart_policy: always
+#   restart_policy: always
     name: mongodb
     image: bitnami/mongodb:latest 
     ports: 

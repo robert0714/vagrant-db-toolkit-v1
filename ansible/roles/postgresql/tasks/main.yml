@@ -9,7 +9,7 @@
 #  become: true
 #  become_user: messagebus
   docker_container:
-    restart_policy: always
+#   restart_policy: always
     privileged: yes
     env:
       DB_USER: ude

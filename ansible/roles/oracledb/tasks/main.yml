@@ -8,7 +8,7 @@
     - "49162:8080"
     - "49161:1521"
     - "49160:22"
-    privileged: yes
+#    privileged: yes
     env:
       ORACLE_ALLOW_REMOTE: true
       processes: 1000
