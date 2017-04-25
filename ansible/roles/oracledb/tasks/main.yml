@@ -3,7 +3,6 @@
   docker_container:
     name: oracledb
     image: sath89/oracle-xe-11g
-    restart_policy: always
     ports: 
     - "49162:8080"
     - "49161:1521"
