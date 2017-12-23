@@ -32,3 +32,9 @@ pid-file=/var/run/mysqld/mysqld.pid
 lower_case_table_names=1
 character-set-server=utf8
 collation-server=utf8_general_ci
+
+#關閉加密允許DB監聽軟體可以讀入
+skip_ssl=YES
+
+#允許ssh外部連入mysql指令
+bind-address=0.0.0.0 
