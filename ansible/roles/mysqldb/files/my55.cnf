@@ -38,3 +38,9 @@ skip_ssl=YES
 
 #允許ssh外部連入mysql指令
 bind-address=0.0.0.0 
+
+validate_password_policy=LOW;
+validate_password_special_char_count=0;
+validate_password_number_count =0;
+validate_password_mixed_case_count =0;
+validate_password_length =6;
