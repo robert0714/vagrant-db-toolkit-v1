@@ -55,18 +55,11 @@
     state: latest 
   tags: [docker]
 
-- name: docker-py is present
+- name: Debian docker-py is present
   pip:
-    name: docker-py 
-    state: latest 
+    name: docker 
+    state: present
   tags: [docker]
-
-# - name: CentOS files are present
-#   template:
-#     src: "{{ centos_docker_cfg }}"
-#     dest: "{{ centos_docker_cfg_dest }}"
-#   register: copy_result
-#   tags: [docker]
 
 - name: Centos Daemon is reloaded
   command: systemctl daemon-reload
