@@ -1,0 +1,25 @@
+- name: Influxdb is running
+  docker_container:
+    restart_policy: always
+    name: influxdb
+    image:  influxdb:latest
+    ports:      
+      - "8086:8086"
+      - "8083:8083"
+      - "8090:8090"
+      - "8099:8099"
+      - "2003:2003"
+    privileged: yes
+    env:
+      TZ: Asia/Taipei
+      INFLUXDB_DATA_ENGINE: tsm1
+      INFLUXDB_GRAPHITE_ENABLED: true
+      INFLUXDB_ADMIN_ENABLED: true
+      INFLUXDB_ADMIN_USER: ude
+      INFLUXDB_ADMIN_PASSWORD: ude
+      INFLUXDB_USER: telegraf
+      INFLUXDB_USER_PASSWORD: secretpasswor
+    volumes:
+      - /data/influxdb:/var/lib/influxdb
+  when: not skip_ui is defined
+  tags: [mongodb]

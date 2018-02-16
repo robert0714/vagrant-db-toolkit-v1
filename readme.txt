@@ -78,4 +78,7 @@ https://hub.docker.com/r/wnameless/postgresql-phppgadmin/
 
 5.MongoDB（200.200.200.204）
     port: 49161
+
+6.MongoDB（200.200.200.205）
+    port: 49161
      
