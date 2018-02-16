@@ -3,7 +3,8 @@ hosts: [
   { host_ip: "200.200.200.201", host_name: "mysqldb"},
   { host_ip: "200.200.200.202", host_name: "postgrsqldb"},
   { host_ip: "200.200.200.203", host_name: "mssql"},
-  { host_ip: "200.200.200.204", host_name: "mongodb"}
+  { host_ip: "200.200.200.204", host_name: "mongodb"},
+  { host_ip: "200.200.200.205", host_name: "influxdb"}
 ]
 
 obsolete_services:
