@@ -76,7 +76,7 @@ Vagrant.configure(2) do |config|
   config.vm.define "influxdb" do |d|
 #   config.ssh.insert_key = false 
     d.vm.box ="ubuntu/trusty64"
-    d.vm.hostname = "mongodb"
+    d.vm.hostname = "influxdb"
     d.vm.network "private_network", ip: "200.200.200.205" 
     d.vm.provision :shell, path: "scripts/bootstrap4Ubuntu_ansible.sh"
     d.vm.provision :shell, inline: "PYTHONUNBUFFERED=1 ansible-playbook /vagrant/ansible/influxdb.yml -c local"
