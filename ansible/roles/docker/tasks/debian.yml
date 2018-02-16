@@ -61,8 +61,7 @@
 
 - name: Debian docker-py is present
   pip:
-    name: docker-py
-    version: 1.10.6
+    name: docker 
     state: present
   tags: [docker]
 
@@ -82,6 +81,7 @@
   user:
     name: vagrant
     group: docker
+    append: yes
   register: user_result
   tags: [docker]
 

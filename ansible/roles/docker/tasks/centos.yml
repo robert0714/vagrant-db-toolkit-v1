@@ -45,7 +45,7 @@
 - name: python-pip is present
   yum:
     name: python-pip
-    state: present
+    state: latest 
   tags: [docker]
 
 - name:  update pip
@@ -57,9 +57,8 @@
 
 - name: docker-py is present
   pip:
-    name: docker-py
-    version: 1.10.6
-    state: present
+    name: docker-py 
+    state: latest 
   tags: [docker]
 
 # - name: CentOS files are present
@@ -78,7 +77,7 @@
   user:
     name: vagrant
     groups: docker
-    appends: yes
+    append: yes
   register: user_result
   tags: [docker]
 

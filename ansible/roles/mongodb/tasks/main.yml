@@ -1,12 +1,13 @@
 - name: MongoDB is running
   docker_container:
-#   restart_policy: always
+    restart_policy: always
     name: mongodb
     image:  mongo:latest
     ports: 
     - "49161:27017"
     privileged: yes
-#    env:
+    env:
+      TZ: Asia/Taipei
 #      MONGODB_USERNAME: ude
 #      MONGODB_PASSWORD: ude
 #      MONGODB_DATABASE: ude

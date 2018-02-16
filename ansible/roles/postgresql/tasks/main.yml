@@ -9,12 +9,13 @@
   docker_container:
     privileged: yes
     env:
-#      DB_USER: ude
-#      DB_PASS: ude 
-#      DB_NAME: udedb
-      DB_USER: redmine
-      DB_PASS: redmine 
-      DB_NAME: redmine
+      TZ: Asia/Taipei
+      DB_USER: ude
+      DB_PASS: ude 
+      DB_NAME: udedb
+      # DB_USER: redmine
+      # DB_PASS: redmine 
+      # DB_NAME: redmine
     image: sameersbn/postgresql:9.6-2
 #    image: sameersbn/postgresql:9.4-4
     name: postgresql

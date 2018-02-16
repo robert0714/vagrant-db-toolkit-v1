@@ -13,6 +13,7 @@
       processes: 1000
       sessions: 1105
       transactions: 1215
+      TZ: Asia/Taipei
     volumes:
       - /data/oracle/data:/u01/app/oracle
       - /data/oracle/init/sh_sql_dmp_files:/docker-entrypoint-initdb.d

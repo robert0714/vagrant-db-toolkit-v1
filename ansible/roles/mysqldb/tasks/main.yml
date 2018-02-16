@@ -23,6 +23,7 @@
       MYSQL_USER: ude
       MYSQL_PASSWORD: ude 
       EXTRA_OPTS: "--lower_case_table_names=1"
+      TZ: Asia/Taipei
     image: mysql/mysql-server:5.7.20-1.1.2
     name: mysqldb
     ports: 

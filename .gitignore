@@ -3,3 +3,4 @@ redmine_2017_0630.dump
 redmine_2017_0630.tar
 ansible/postgresql-centos.retry
 .vagrant
+ansible/*.retry
